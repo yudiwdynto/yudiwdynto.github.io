@@ -30,18 +30,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.104.3
-      GO_VERSION: 1.19.2
+      HUGO_VERSION: 0.102.3
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Golang
+      - name: check Go version
         run: |
-          wget -O ${{ runner.temp }}/go.tar.gz https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz \
-          && sudo tar -C /usr/local -xzf ${{ runner.temp }}/go.tar.gz \
-          && export PATH=$PATH:/usr/local/go/bin
+          go version
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
