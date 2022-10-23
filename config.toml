@@ -3,8 +3,11 @@ DefaultContentLanguage = "en" # Theme's display language, supports: en, fr, zh, 
 languageCode = "en-us"
 title = "A Hugo Site"
 copyright = "This is a customized copyright."
-theme = "diary"
 # googleAnalytics = "UA-123-45"
+
+[module]
+  [[module.imports]]
+    path = "github.com/yudiwdynto/hugo-theme-akasia"
 
 [markup]
   [markup.highlight]
