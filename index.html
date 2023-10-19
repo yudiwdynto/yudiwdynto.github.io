@@ -6,46 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
+      :root {
+        --pad: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+        --link: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+        --h1: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
 
+      body {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+      }
+
+      main {
+        line-height: 1.5;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        display: grid;
+        place-content: center;
+        padding-block: var(--pad);
+        padding-inline: var(--pad);
+      }
+
+      h1 {
+        font-size: var(--h1);
+        text-align: center;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
       a {
-        color: #0969da;
-        text-decoration: none;
+        color: currentColor;
+        font-size: var(--link);
       }
 
       a:hover {
-        text-decoration: underline;
-        text-underline-offset: 0.2em;
-      }
-
-      article {
-        padding-inline: 1.5rem;
-        padding-block: 1.5rem;
-      }
-
-      p {
-        font-size: 18px;
-        margin-block-start: 1rem;
-      }
-
-      article a {
-        margin-inline-start: 1rem;
+        text-decoration: none;
       }
     </style>
   </head>
   <body>
     <main>
       <article>
-        <h1>&#128075; Hi, I'm Yudi Widiyanto.</h1>
-        <p>
-          <strong>Find me on</strong>:
-          <a href="https://github.com/yudiwdynto">GitHub</a>
-          <a href="https://twitter.com/yudiwdynto">Twitter</a>
-        </p>
+        <h1>Yudi Widiyanto</h1>
+        <div>
+          <a href="https://github.com/yudiwdynto" aria-label="GitHub">GitHub</a>
+          <a href="https://twitter.com/yudiwdynto" aria-label="Twitter">Twitter</a>
+        </div>
       </article>
     </main>
   </body>
